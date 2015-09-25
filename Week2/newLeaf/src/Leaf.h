@@ -19,7 +19,7 @@ public:
     
     void setup();
     void update();
-    void draw(float _xPos, float _yPos);
+    void draw();
     
 private:
 

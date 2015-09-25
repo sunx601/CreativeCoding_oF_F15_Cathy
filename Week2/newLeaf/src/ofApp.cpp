@@ -12,6 +12,7 @@ void ofApp::setup(){
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
+    
 }
 
 //--------------------------------------------------------------
@@ -19,6 +20,7 @@ void ofApp::update(){
     for(int i = 0; i < numLeaves; i++){
         myMaple[i].update();
     }
+    
 }
 
 //--------------------------------------------------------------
@@ -26,6 +28,7 @@ void ofApp::draw(){
     for(int i = 0; i < numLeaves; i++){
         myMaple[i].draw();
     }
+    
 
 }
 

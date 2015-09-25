@@ -42,8 +42,7 @@ void Leaf::update(){
     
 }
 
-void Leaf::draw(float _xPos, float _yPos){
-    
+void Leaf::draw(){
     
 
     //CENTER LEAF
@@ -51,9 +50,10 @@ void Leaf::draw(float _xPos, float _yPos){
     ofPushMatrix();
     ofSetLineWidth(1);
     ofRotateZ(rotation);
-    ofRotate(rotation,_xPos,_yPos,0);
-    ofTranslate(_xPos, _yPos);
+    ofRotate(rotation,xPos,yPos,0);
+
     
+    ofTranslate(xPos, yPos);
     ofRotate(rotation);
     ofScale(scaleFactor,scaleFactor);
     ofSetColor(leafColor);
