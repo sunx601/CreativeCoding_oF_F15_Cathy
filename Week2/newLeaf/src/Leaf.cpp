@@ -16,24 +16,25 @@ void Leaf::setup(){
     yPos = ofGetHeight()/2;
 
     
-    leafLength = 300;
-    leafWidth = 190;
+    leafLength = ofRandom(280,300);
+    leafWidth = ofRandom(180,190);
     
-    stemLength = 100;
-    stemWidth = 4;
+    stemLength = ofRandom(150,160);
+    stemWidth = ofRandom(8,10);
     
     leafColor = ofColor(ofRandom(220,250),ofRandom(50,90),ofRandom(30,50), ofRandom(210,225));
     stemColor = ofColor(128,70,50);
     
-    scaleFactor = ofRandom(.3,1);
+    scaleFactor = ofRandom(.1,.5);
     rotation = ofRandom(0,360);
-    ofSetRectMode(OF_RECTMODE_CENTER);
     
-    
+
     //Small leaf variables
     
-    leafL=200;
-    leafW=150;
+    leafL=ofRandom(200,210);
+    leafW=ofRandom(140,150);
+    
+    ofSetRectMode(OF_RECTMODE_CENTER);
     
     
 }
@@ -44,20 +45,22 @@ void Leaf::update(){
 
 void Leaf::draw(){
     
-
-    //CENTER LEAF
-    
     ofPushMatrix();
-    ofSetLineWidth(1);
-    ofRotateZ(rotation);
-    ofRotate(rotation,xPos,yPos,0);
-
     
-    ofTranslate(xPos, yPos);
-    ofRotate(rotation);
+    
+    ofTranslate(xPos, yPos-stemLength);
+    ofRotateZ(rotation);
+    
+//    ofSetLineWidth(1);
+    
+    
     ofScale(scaleFactor,scaleFactor);
     ofSetColor(leafColor);
     
+    
+    
+   
+    //CENTER LEAF
     
     ofBeginShape();
     
@@ -100,14 +103,6 @@ void Leaf::draw(){
     ofBezierVertex(x1,y1,x2,y2,x3,y3);
     ofEndShape();
     
-    //stem rectangle
-    
-    ofBeginShape();
-    ofSetColor(stemColor);
-    ofRect(x0,y0 - (stemLength/2), stemWidth, stemLength);
-    ofEndShape();
-    
-
 //SECOND LEFT LEAF
     
     ofBeginShape();
@@ -147,17 +142,11 @@ void Leaf::draw(){
     ofBezierVertex(x1,y1,x2,y2,x3,y3);
     ofEndShape();
 
-    
-    
-    
 //Third LEFT LEAF - small
     
     ofBeginShape();
     ofSetColor(leafColor);
     ofRotate(60, x0, y0, 30);
-
-    
-    
     
     x0 = 0;
     x1 = x0 - leafW/3;
@@ -197,9 +186,6 @@ void Leaf::draw(){
     ofSetColor(leafColor);
     ofRotate(150, x0, y0, 90);
     
-    
-    
-    
     x0 = 0;
     x1 = x0 - leafW/3;
     x2 = x0 - (leafW)/3;
@@ -232,16 +218,10 @@ void Leaf::draw(){
     ofBezierVertex(x1,y1,x2,y2,x3,y3);
     ofEndShape();
 
-    
-    
-    
     //Right Second Leaf
     ofBeginShape();
     ofSetColor(leafColor);
     ofRotate(60, x0, y0, 300);
-    
-    
-    
     
     x0 = 0;
     x1 = x0 - leafWidth/3;
@@ -256,7 +236,6 @@ void Leaf::draw(){
     ofVertex(x0,y0);
     ofBezierVertex(x1,y1,x2,y2,x3,y3);
     ofEndShape();
-    
     
     //right leaf
     ofBeginShape();
@@ -274,10 +253,19 @@ void Leaf::draw(){
     ofVertex(x0,y0);
     ofBezierVertex(x1,y1,x2,y2,x3,y3);
     ofEndShape();
-
-
+    
+//    //stem
+//    ofBeginShape();
+//    ofSetColor(stemColor);
+//    ofRotate(45, x0, y0, 30);
+//    ofRect(0,0-stemLength/2, stemWidth, stemLength);
+    
+//    float x11 = 0 - stemWidth/2;
+//    float x22 = 0 + stemWidth/2;
+    
+    
+    ofEndShape();
+    
     ofPopMatrix();
-    
-    
     
 }

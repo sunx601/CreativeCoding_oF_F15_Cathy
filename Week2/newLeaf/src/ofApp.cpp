@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    numLeaves = (int)ofRandom(5,15);
+    numLeaves = (int)ofRandom(1,5);
     
     for(int i = 0; i < numLeaves; i++){
         Leaf tempLeaf;

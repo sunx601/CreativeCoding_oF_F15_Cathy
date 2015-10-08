@@ -36,6 +36,10 @@ private:
     float scaleFactor;
     
     float leafL, leafW;
+    
+//    float length;
+//    float angle;
+    
         
 };
 
